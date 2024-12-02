@@ -3,10 +3,12 @@
 
 @section('title', 'Departments')
 
+@vite(['resources/js/departments.js'])
+
 @section('content')
 <a href="{{ route('departments.create') }}" class="btn btn-primary mb-3">Add Department</a>
 
-<table class="table table-striped table-responsive">
+<table class="table table-striped table-responsive" id="departmentTable">
     <thead>
         <tr>
             <th>ID</th>

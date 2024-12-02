@@ -1,46 +1,30 @@
 $(document).ready(function(){
-    $('#studentsTable').DataTable();
+
+    $('#departmentTable').DataTable();
 
     // create
-    $("#addStudentForm").validate({
+    $("#addDepartmentForm").validate({
         rules: {
-            first_name: {
+            name: {
                 required: true,
             },
-            last_name: {
+            course: {
                 required: true,
-            },
-            dob: {
-                required: true,
-            },
-            address: {
-                required: true,
-            },
-            department_id: {
-                required: true,
-            },
+            }
+           
         },
         messages: {
-            first_name: {
-                required: "Firstname field is required",
+            name: {
+                required: "Deoartent name field is required",
             },
-            last_name: {
-                required: "Lastname field is required",
-            },
-            dob: {
-                required: "dob field is required",
-            },
-            address: {
-                required: "address field is required",
-            },
-            department_id: {
-                required: "department_id field is required",
-            },
+            course: {
+                required: "Course field is required",
+            }
         },
     });
 
-    $("#addStudentForm").on("submit", function (e) {
-        if ($("#addStudentForm").valid()) {
+    $("#addDepartmentForm").on("submit", function (e) {
+        if ($("#addDepartmentForm").valid()) {
             e.preventDefault();
             $.ajaxSetup({
                 headers: {
@@ -49,7 +33,7 @@ $(document).ready(function(){
                     ),
                 },
             });
-            var formData = new FormData(document.getElementById("addStudentForm"));
+            var formData = new FormData(document.getElementById("addDepartmentForm"));
 
             $.ajax({
                 url: $(this).attr("action"),
@@ -66,7 +50,7 @@ $(document).ready(function(){
                             showConfirmButton: false,
                             timer: 1500,
                         });
-                        window.location.href = "/students";
+                        window.location.href = "/departments";
                        
                     } else {
                         Swal.fire({
@@ -99,45 +83,28 @@ $(document).ready(function(){
     });
 
     // edit
-    $("#editStudentForm").validate({
+    $("#editDepartmentForm").validate({
         rules: {
-            first_name: {
+            name: {
                 required: true,
             },
-            last_name: {
+            course: {
                 required: true,
-            },
-            dob: {
-                required: true,
-            },
-            address: {
-                required: true,
-            },
-            department_id: {
-                required: true,
-            },
+            }
+           
         },
         messages: {
-            first_name: {
-                required: "Firstname field is required",
+            name: {
+                required: "Deoartent name field is required",
             },
-            last_name: {
-                required: "Lastname field is required",
-            },
-            dob: {
-                required: "dob field is required",
-            },
-            address: {
-                required: "address field is required",
-            },
-            department_id: {
-                required: "department_id field is required",
-            },
+            course: {
+                required: "Course field is required",
+            }
         },
     });
 
-    $("#editStudentForm").on("submit", function (e) {
-        if ($("#editStudentForm").valid()) {
+    $("#editDepartmentForm").on("submit", function (e) {
+        if ($("#editDepartmentForm").valid()) {
             e.preventDefault();
             $.ajaxSetup({
                 headers: {
@@ -146,7 +113,7 @@ $(document).ready(function(){
                     ),
                 },
             });
-            var formData = new FormData(document.getElementById("editStudentForm"));
+            var formData = new FormData(document.getElementById("editDepartmentForm"));
 
             $.ajax({
                 url: $(this).attr("action"),
@@ -163,7 +130,7 @@ $(document).ready(function(){
                             showConfirmButton: false,
                             timer: 1500,
                         });
-                        window.location.href = "/students";
+                        window.location.href = "/departments";
                     } else {
                         Swal.fire({
                             icon: "error",

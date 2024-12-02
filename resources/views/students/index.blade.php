@@ -21,7 +21,7 @@
         </tr>
     </thead>
     <tbody>
-        {{-- @foreach ($students as $student)
+        @foreach ($students as $student)
         <tr>
             <td>{{ $student->id }}</td>
             <td>{{ $student->first_name }}</td>
@@ -38,7 +38,7 @@
                 </form>
             </td>
         </tr>
-        @endforeach --}}
+        @endforeach
     </tbody>
 </table>
 @endsection

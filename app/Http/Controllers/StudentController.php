@@ -33,13 +33,13 @@ class StudentController extends Controller
             Student::create($request->all());
             return response()->json([
                 'status' => '1',
-                'message' => 'Students Data Saved Successfully...',
+                'message' => 'Student Data Saved Successfully...',
                 'data' => [],
             ]);
         } catch (ValidationException $e) {
             return response()->json([
                 'status' => '0',
-                'message' => 'Studa Data Saved Failed...',
+                'message' => 'Student Data Saved Failed...',
                 'data' => [],
             ]);
         }
@@ -67,13 +67,13 @@ class StudentController extends Controller
             $student->update($request->all());
             return response()->json([
                 'status' => '1',
-                'message' => 'Students Data Updated Successfully...',
+                'message' => 'Student Data Updated Successfully...',
                 'data' => [],
             ]);
         } catch (ValidationException $e) {
             return response()->json([
                 'status' => '0',
-                'message' => 'Students Data Updated Failed...',
+                'message' => 'Student Data Updated Failed...',
                 'data' => [],
             ]);
         }
@@ -93,7 +93,6 @@ class StudentController extends Controller
         $search  = $request->input('search')['value'];
 
         $query = Student::query();
-        dd($query);
 
         if ($search) {
             $query->where(function ($query) use ($search) {

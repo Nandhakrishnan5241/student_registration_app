@@ -3,8 +3,10 @@
 
 @section('title', 'Edit Department')
 
+@vite(['resources/js/departments.js'])
+
 @section('content')
-<form action="{{ route('departments.update', $department) }}" method="POST" class="card p-4">
+<form action="{{ route('departments.update', $department) }}" method="POST" class="card p-4" id="editDepartmentForm">
     @csrf
     @method('PUT')
     <div class="mb-3">
