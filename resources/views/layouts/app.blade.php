@@ -24,12 +24,38 @@
 </head>
 
 <body>
-   
-    <div class="container py-4">
-        <div class="float-end">   
-            <a href="/students" class="btn btn-primary">Manage Students</a>
-            <a href="/departments" class="btn btn-info">Manage Departments</a>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Student Registration</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                  <a href="/students" class="btn btn-primary mx-2">Manage Students</a>
+                </li>
+                
+          
+                <li class="nav-item">
+                  <a href="/departments" class="btn btn-info mx-2">Manage Departments</a>
+                </li>
+     
+                <li class="nav-item">
+                  <form method="POST" action="{{ route('logout') }}" style="display:inline;">
+                    @csrf
+                    <button type="submit" class="btn btn-danger">
+                      {{ __('Log Out') }}
+                    </button>
+                  </form>
+                </li>
+              </ul>
+          </div>
         </div>
+      </nav>
+    <div class="container py-4">
+        
         <h1 class="text-center mb-4">@yield('title')</h1>
         @yield('content')
 
